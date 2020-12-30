@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import Img from './assets/cats.jpg'
 
-function App() {
+import List from './containers/List/List'
+
+const products = [
+  { img: Img, title: "Title 1", description: "Description 1" },
+  { img: Img, title: "Title 2", description: "Description 2" },
+  { img: Img, title: "Title 3", description: "Description 3" },
+  { img: Img, title: "Title 4", description: "Description 4" },
+  { img: Img, title: "Title 5", description: "Description 5" },
+];
+
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <List products = {products}/>
     </div>
   );
 }
