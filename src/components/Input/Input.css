@@ -1,18 +1,18 @@
-.btn-info {
+.input-info{
     border:0;
     background: none;
     display: block;
     margin: 20px auto;
     text-align: center;
-    border: 2px solid #2ecc71;
-    padding: 14px 40px;
+    border: 2px solid #3498db;
+    padding: 14px 10px;
+    width: 200px;
     outline: none;
     color: white;
     border-radius: 24px;
     transition: 0.25s;
-    cursor: pointer;
-}
-
-.btn-info:hover {
-    background: #afcc2e;
+  }
+.input-info:focus{
+    width: 280px;
+    border-color: #2ecc71;
 }
