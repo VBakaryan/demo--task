@@ -1,12 +1,12 @@
 const emailRegex = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
-const userNamelength = 10;
+const passwordLength = 8;
 
-export const validateUserNameLength = (val) => {
+export const validatePasswordLength = (val) => {
     let errorText = '';
     let isValid = true;
 
-    if (val.length >= userNamelength) {
-        errorText = "Username is too long";
+    if (val.length < passwordLength) {
+        errorText = "Password should contain more than 8 symbols";
         isValid = false;
     }
 

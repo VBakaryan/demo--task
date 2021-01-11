@@ -1,12 +1,14 @@
 import React from 'react';
 import './App.css';
 
-import { Form } from './containers/Form/Form'
+import Layout from './components/Layout/Layout'
+import Header from './containers/Header/Header'
 
 const App = () => {
   return (
     <div className="App">
-        <Form />
+        <Header />
+        <Layout />
     </div>
   );
 }
