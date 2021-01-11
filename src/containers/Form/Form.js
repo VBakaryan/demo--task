@@ -1,21 +1,19 @@
 import React, {useState} from 'react'
 import Button from '../../components/Button/Button'
 import Input from '../../components/Input/Input'
-import { validateUserNameLength, validateUserNameAsEmail } from '../../utils/validate';
+import { validatePasswordLength, validateUserNameAsEmail } from '../../utils/validate';
 
-import './Form.css'
+import './Form.scss'
 
 
 export const Form = () => {
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
+    const [errorUserNameText, setErrorUserNametext] = useState('');
+    const [errorPasswordText, setErrorPasswordText] = useState('');
 
     const onUserNameChange = (event) => {
-        const val = event.target.value;
-
-        console.log(validateUserNameLength(val).errorText);
-
-        setUserName(val);
+        setUserName(event.target.value);
     }
 
     const onPasswordChange = (event) => {
@@ -23,19 +21,30 @@ export const Form = () => {
     }
 
     const onButtonClick = () => {
-        if (!userName || !password) {
-            console.log("UserName or password is not provided");
+        if (!userName) {
+            setErrorUserNametext("UserName is not provided");
         } else {
-            const result = validateUserNameAsEmail(userName).errorText;
-            result ? console.log(result) : console.log("You are successfully signed in ;)");
+            setErrorUserNametext(validateUserNameAsEmail(userName).errorText);
+        }
+
+        if (!password) {
+            setErrorPasswordText("Password is not provided")
+        } else {
+            setErrorPasswordText(validatePasswordLength(password).errorText);
+        }
+
+        if (!errorUserNameText && !errorPasswordText) {
+            alert("You are successfully signed in ;");
         }
     }
 
     return (
             <div className='box'>
                 <h1>Login</h1>
-                <Input value={userName} onChange={onUserNameChange} placeholder='UserName'/>        
+                <Input value={userName} onChange={onUserNameChange} placeholder='UserName'/> 
+                <p>{errorUserNameText}</p>       
                 <Input value={password} onChange={onPasswordChange} placeholder = 'Password'/>
+                <p>{errorPasswordText}</p>
                 <Button onClick={onButtonClick} placeholder='Sign In'/>
            </div>
            );
