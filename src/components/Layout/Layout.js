@@ -8,7 +8,7 @@ const Layout = ({children}) => {
     return (
         <div className = "app-layout">
             <main className = "app-main-content">
-                <Form />
+                {children}
             </main>
             <Footer />
         </div>
